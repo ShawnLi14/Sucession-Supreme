@@ -1,5 +1,5 @@
 /* CSS for centering the grid */
-body{
+.body-title{
     background: url("../images/backgrounds/titlescreen.jpg") no-repeat center center fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -48,7 +48,6 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f1f1f1;
 }
 
 .difficulty-button {

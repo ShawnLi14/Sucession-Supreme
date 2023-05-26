@@ -91,6 +91,7 @@ function createShopItem(name, cost, png){
 }
 
 function startGame(diff){
+    $('body').removeClass('body-title');
     difficulty = diff;
     $('#game').show();
     $('#difficultySelect').hide();
@@ -98,7 +99,6 @@ function startGame(diff){
 }
 
 function difficultyScreen(){
-    $('body').css('background', 'none');
     $('#mainMenu').hide();
     $('#difficultySelect').show();
 }
