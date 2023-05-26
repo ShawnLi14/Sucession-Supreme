@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <script src="js/plants.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <title>Sucession Supreme</title>
+</head>
+<body>
+  <div id="mainMenu">
+    <div class="menu">
+      <h1>Sucession Supreme</h1>
+      <button onclick="difficultyScreen()">Play</button>
+      <button onclick="showLeaderboards()">Leaderboards</button>
+    </div>    
+  </div>
+  <div id="difficultySelect" hidden>
+    <div class="difficulty-screen">
+      <button class="difficulty-button easy-button" onclick=startGame(0)><h1>Easy</h1></button>
+      <button class="difficulty-button medium-button"></button>
+      <button class="difficulty-button hard-button"></button>
+    </div>
+  </div>
+  <div id="game" hidden>
+    <div class="right-gui-box">
+      <div>
+        Nutrients: <span id="nutrientsValue">0</span>
+      </div>
+      <div>
+        Soil Level: <span id="soilLevel">0%</span>
+      </div>
+    </div>
+    <div class="left-gui-box">
+      <div>
+        Goal: <span id="goal">Reach 100% Soil</span>
+      </div>
+    </div>
+    <div class="grid-container">
+      <div id="1" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+      <div id="2" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+      <div id="3" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+      <div id="4" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+      <div id="5" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+      <div id="6" class="grid-item primary-succession-animation" data-content="Plantable"></div>
+      <div id="7" class="grid-item primary-succession-animation" data-content="Plantable"></div>
+      <div id="8" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+      <div id="9" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+      <div id="10" class="grid-item primary-succession-animation" data-content="Plantable"></div>
+      <div id="11" class="grid-item primary-succession-animation" data-content="Plantable"></div>
+      <div id="12" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+      <div id="13" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+      <div id="14" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+      <div id="15" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+      <div id="16" class="disabled-grid grid-item" data-content="Uninhabitable"></div>
+    </div>
+    <div id="popup-container"></div>
+    <div class="rain-button-overlay">
+      <button type="button" class="rain-button" id="rain-button" data-content="1000 nutrients" onclick=activateRain()>Activate Rain</button>
+    </div>
+    <div class="river-button-overlay">
+      <button type="button" class="river-button" id="river-button" data-content="50000 nutrients" onclick=activateRiver()>Activate River</button>
+    </div>
+    <div class="level-animation-overlay">
+      <div class="animation-container">
+        <h1 class="next-level" id="next-level-text">Primary Succession Complete!</h1>
+      </div>
+    </div> 
+    <div id="raindrop-overlay">
+      <div id="cloud">
+        <div id="raindrops-container"></div>
+      </div>
+    </div>
+    <div id="river-animation-one"></div>
+    <div id="river-animation-two"></div>
+  </div>
+</body>
+</html>
