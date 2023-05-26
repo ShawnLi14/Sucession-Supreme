@@ -67,11 +67,11 @@
 }
 
 .medium-button {
-    background-image: url("medium.png");
+    background-image: url(../images/backgrounds/decidious.jpg);
 }
 
 .hard-button {
-    background-image: url("hard.png");
+    background-image: url(../images/backgrounds/rainforest.jpg);
 }
 
 .body-game {
