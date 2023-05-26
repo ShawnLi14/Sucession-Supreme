@@ -98,6 +98,7 @@ function startGame(diff){
 }
 
 function difficultyScreen(){
+    $('body').css('background', 'none');
     $('#mainMenu').hide();
     $('#difficultySelect').show();
 }

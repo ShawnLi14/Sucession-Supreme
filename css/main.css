@@ -1,4 +1,11 @@
 /* CSS for centering the grid */
+body{
+    background: url("../images/backgrounds/titlescreen.jpg") no-repeat center center fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 .mainMenu {
     background-color: #000000;
     display: flex;
