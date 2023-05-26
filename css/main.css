@@ -463,3 +463,38 @@
 .reset-animation {
     animation: none;
 }
+
+.how-to-play-button {
+position: absolute;
+bottom: 20px;
+right: 20px;
+padding: 10px 20px;
+background-color: #eaeaea;
+color: #000;
+text-decoration: none;
+border-radius: 5px;
+}
+
+.how-to-play-button:hover {
+background-color: #ccc;
+}
+  
+#timer-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    padding: 5px;
+    background-color: #DDD;
+    border-color: #000;
+    border-radius: 5px;
+  }
+  
+  #timer-container button {
+    margin-right: 5px;
+  }
+  
+  #timer {
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  

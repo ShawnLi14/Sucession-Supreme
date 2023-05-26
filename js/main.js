@@ -91,6 +91,12 @@ function createShopItem(name, cost, png){
 }
 
 function startGame(diff){
+    if(diff > 0){
+        alert('Coming Soon');
+        return;
+    }
+
+    startTimer();
     $('body').removeClass('body-title');
     difficulty = diff;
     $('#game').show();
@@ -101,4 +107,36 @@ function startGame(diff){
 function difficultyScreen(){
     $('#mainMenu').hide();
     $('#difficultySelect').show();
+}
+
+let timerInterval;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
+
+function startTimer() {
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+function updateTimer() {
+  seconds++;
+  if (seconds === 60) {
+    seconds = 0;
+    minutes++;
+    if (minutes === 60) {
+      minutes = 0;
+      hours++;
+    }
+  }
+
+  const formattedTime = `${padTime(hours)}:${padTime(minutes)}:${padTime(seconds)}`;
+  document.getElementById('timer').textContent = formattedTime;
+}
+
+function padTime(time) {
+  return time.toString().padStart(2, '0');
 }

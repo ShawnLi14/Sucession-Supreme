@@ -1,5 +1,5 @@
-var nutrients = 100;
-var soilLevel = 0;
+var nutrients = 1000000;
+var soilLevel = 99;
 var phase = 0;
 var firTrees = 0;
 var difficulty = 0;
@@ -29,6 +29,7 @@ function winChecker(){
 
 setInterval(winChecker, 100);
 setInterval(updateSoil, 100);
+setInterval(drought, 5000);
   
 function plant(id, img, perSecond, length, cost) {
     if(nutrients < cost){
@@ -138,9 +139,9 @@ function activateRain(){
 function thirdPhaseEasy(){
     phase = 2;
     $('#goal').html('Plant 20 Fir Trees');
-    $('.next-level').css('animation-play-state', 'running');
     $('#next-level-text').html('Shrub Phase Complete!');
     $('body').addClass('phase-3-bg');
+    $('.next-level').css('animation-play-state', 'running');
     $('.level-animation-overlay').css('opacity', '1');
     $('.level-animation-overlay').css('z-index', '9999');
     const animation = document.querySelector('.next-level');
@@ -155,8 +156,9 @@ function thirdPhaseEasy(){
 }
 
 function winEasy(){
+    stopTimer();
     phase = 3;
-    $('#next-level-text').html('Climax Community Created! You Win!');
+    $('#next-level-text').html('Climax Community Created! You Win! Time: ' + padTime(hours) + ":" + padTime(hours) + ":" + padTime(hours));
     $('.level-animation-overlay').css('opacity', '1');
     $('.next-level').css('animation-play-state', 'running');
     $('.level-animation-overlay').css('z-index', '9999');
@@ -198,4 +200,40 @@ function activateRiver(){
         $('#16').removeClass('disabled-grid');
     }, 3500);
 }
+
+function drought(){
+    var randomNumber = Math.floor(Math.random() * 100) + 1;
+    if (randomNumber > 5 || phase == 0) {
+        return;
+    }
+
+    var numElementsToSelect = Math.floor(plantedBoxes.length / 4);
   
+    var selectedElements = [];
+    
+    while (selectedElements.length < numElementsToSelect) {
+        var randomIndex = Math.floor(Math.random() * plantedBoxes.length);
+        if (!selectedElements.includes(plantedBoxes[randomIndex])) {
+            selectedElements.push(plantedBoxes[randomIndex]);
+        }
+    }
+
+    for(var i = 0; i < selectedElements.length; i++){
+        $('#' + selectedElements[i]).addClass('disabled-grid');
+    }
+
+    $('#next-level-text').html('Drought');
+    $('.next-level').css('animation-play-state', 'running');
+    $('.level-animation-overlay').css('opacity', '1');
+    $('.level-animation-overlay').css('z-index', '9999');
+    const animation = document.querySelector('.next-level');
+    animation.classList.add('reset-animation');
+    void animation.offsetWidth;
+    animation.classList.remove('reset-animation');
+    $('.next-level').css('animation-delay', '-1.5s');
+    setTimeout(function() {
+        $('.level-animation-overlay').css('opacity', '0');
+        $('.level-animation-overlay').css('z-index', '-1');
+    }, 1500);
+    $('#next-level-text').css('color', '#C2B280');
+}

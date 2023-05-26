@@ -12,14 +12,14 @@
     <div class="menu">
       <h1>Sucession Supreme</h1>
       <button onclick="difficultyScreen()">Play</button>
-      <button onclick="showLeaderboards()">Leaderboards</button>
+      <!--<button onclick="showLeaderboards()">Leaderboards</button>-->
     </div>    
   </div>
   <div id="difficultySelect" hidden>
     <div class="difficulty-screen">
       <button class="difficulty-button easy-button" onclick=startGame(0)><h1>Easy</h1></button>
-      <button class="difficulty-button medium-button"><h1>Medium</h1></button>
-      <button class="difficulty-button hard-button"><h1>Hard</h1></button>
+      <button class="difficulty-button medium-button" onclick=startGame(1)><h1>Medium</h1></button>
+      <button class="difficulty-button hard-button" onclick=startGame(2)><h1>Hard</h1></button>
     </div>
   </div>
   <div id="game" hidden>
@@ -73,6 +73,13 @@
     </div>
     <div id="river-animation-one"></div>
     <div id="river-animation-two"></div>
+
+    <a href="instructions.html" target="_blank" class="how-to-play-button">How to Play</a>
+
+    <div id="timer-container">
+      <span id="timer">00:00:00</span>
+    </div>
+    
   </div>
 </body>
 </html>
