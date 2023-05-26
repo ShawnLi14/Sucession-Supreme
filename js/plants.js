@@ -1,5 +1,5 @@
-var nutrients = 100;
-var soilLevel = 0;
+var nutrients = 10000;
+var soilLevel = 99;
 var phase = 0;
 var firTrees = 0;
 var difficulty = 0;
@@ -44,7 +44,7 @@ function plant(id, img, perSecond, length, cost) {
     plantImage(id, img);
     $('#' + id).attr('data-content', length - seconds + 's left');
     var interval = setInterval(function() {
-        if (seconds >= length) {
+        if (seconds >= length || $('#' + id).hasClass('disabled-grid')) {
             clearInterval(interval);
             removePlant(id);
         } else {
@@ -108,10 +108,14 @@ function activateRain(){
     animateCloud();
   
     setTimeout(function() {
+        openBoxes.add(5);
+        openBoxes.add(9);
         $('#5').removeClass('disabled-grid');
         $('#9').removeClass('disabled-grid');
     }, 1500);
     setTimeout(function() {
+        openBoxes.add(8);
+        openBoxes.add(12);
         $('#8').removeClass('disabled-grid');
         $('#12').removeClass('disabled-grid');
     }, 3000);
@@ -184,42 +188,57 @@ function activateRiver(){
     riverAnimation.innerHTML = '<div class="river"></div>';
 
     setTimeout(function() {
+        openBoxes.add(1);
+        openBoxes.add(13);
         $('#1').removeClass('disabled-grid');
         $('#13').removeClass('disabled-grid');
     }, 1750);
     setTimeout(function() {
+        openBoxes.add(2);
+        openBoxes.add(14);
         $('#2').removeClass('disabled-grid');
         $('#14').removeClass('disabled-grid');
     }, 2500);
     setTimeout(function() {
+        openBoxes.add(3);
+        openBoxes.add(15);
         $('#3').removeClass('disabled-grid');
         $('#15').removeClass('disabled-grid');
     }, 3000);
     setTimeout(function() {
+        openBoxes.add(4);
+        openBoxes.add(16);
         $('#4').removeClass('disabled-grid');
         $('#16').removeClass('disabled-grid');
     }, 3500);
 }
 
 function drought(){
+    openBoxes.forEach(elem => {
+        $('#' + elem).removeClass('disabled-grid');
+    });
+
     var randomNumber = Math.floor(Math.random() * 100) + 1;
-    if (randomNumber > 5 || phase == 0) {
+    if (randomNumber > 10 || phase == 0) {
         return;
     }
 
-    var numElementsToSelect = Math.floor(plantedBoxes.length / 4);
-  
-    var selectedElements = [];
+    var numElementsToSelect = Math.ceil(openBoxes.size / 4);
     
-    while (selectedElements.length < numElementsToSelect) {
-        var randomIndex = Math.floor(Math.random() * plantedBoxes.length);
-        if (!selectedElements.includes(plantedBoxes[randomIndex])) {
-            selectedElements.push(plantedBoxes[randomIndex]);
+    var selectedElements = [];
+    openBoxes.forEach(elem => {
+        if(Math.random() * 100 < 20){
+            selectedElements.push(elem);
         }
-    }
+    });
 
     for(var i = 0; i < selectedElements.length; i++){
+        $('#' + selectedElements[i]).removeClass('primary-succession-animation');
+        $('#' + selectedElements[i]).removeClass('grid-item');
+        $('#' + selectedElements[i]).css('animation', 'none');
         $('#' + selectedElements[i]).addClass('disabled-grid');
+        $('#' + selectedElements[i]).addClass('grid-item');
+        
     }
 
     $('#next-level-text').html('Drought');

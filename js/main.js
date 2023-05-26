@@ -1,4 +1,9 @@
 let plantedBoxes = new Set();
+let openBoxes = new Set();
+openBoxes.add(6);
+openBoxes.add(7);
+openBoxes.add(10);
+openBoxes.add(11);
 var lastBoxID = 0;
 
 $(document).ready(function() {
