@@ -162,7 +162,7 @@ function thirdPhaseEasy(){
 function winEasy(){
     stopTimer();
     phase = 3;
-    $('#next-level-text').html('Climax Community Created! You Win! <br> Time: ' + padTime(hours) + ":" + padTime(hours) + ":" + padTime(hours));
+    $('#next-level-text').html('Climax Community Created! You Win! <br> Time: ' + `${padTime(hours)}:${padTime(minutes)}:${padTime(seconds)}`);
     $('.level-animation-overlay').css('opacity', '1');
     $('.next-level').css('animation-play-state', 'running');
     $('.level-animation-overlay').css('z-index', '9999');
