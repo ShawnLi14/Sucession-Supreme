@@ -31,7 +31,7 @@ $(document).ready(function() {
                 plant(lastBoxID, id.toLowerCase(), 10, 15, 100);
             }
             if(id == "Grass"){
-                plant(lastBoxID, id.toLowerCase(), 50, 5, 200);
+                plant(lastBoxID, id.toLowerCase(), 50, 6, 200);
             }
             if(id == "Beans"){
                 plant(lastBoxID, id.toLowerCase(), 100, 15, 1000);
@@ -52,7 +52,7 @@ $(document).ready(function() {
                 plant(lastBoxID, id.toLowerCase(), 15000, 10, 100000);
             }
             if(id == "Fir"){
-                plant(lastBoxID, id.toLowerCase(), 20000, 20, 200000);
+                plant(lastBoxID, id.toLowerCase(), 20000, 15, 200000);
                 firTrees++;
             }
         });

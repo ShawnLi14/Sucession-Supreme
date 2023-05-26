@@ -1,5 +1,5 @@
-var nutrients = 19999;
-var soilLevel = 90;
+var nutrients = 100;
+var soilLevel = 0;
 var phase = 0;
 var firTrees = 0;
 var difficulty = 0;
